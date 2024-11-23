@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coffee_shops",
+  "info": {
+    "singularName": "coffee-shop",
+    "pluralName": "coffee-shops",
+    "displayName": "Coffee Shop"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "img": {
+      "type": "media",
+      "multiple": false
+    },
+    "img_big": {
+      "type": "media",
+      "multiple": false
+    },
+    "location": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "tag": {
+      "type": "string",
+      "required": true
+    },
+    "availability": {
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "closed",
+        "limited"
+      ],
+      "default": "open",
+      "required": true
+    },
+    "book": {
+      "type": "string",
+      "required": false
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "coffee_shop"
+    },
+    "average_rating": {
+      "type": "decimal",
+      "min": 0,
+      "max": 5,
+      "default": 0
+    }
+  }
+}
